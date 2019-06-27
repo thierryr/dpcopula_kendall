@@ -1,0 +1,22 @@
+change_order
+
+Usage:
+    change_order.py [attr_id]
+    change_order.py help
+
+Description:
+    Randomises the assigned attribute order and creates new files representing
+    these changes. Two files are created, one containing the attribute values
+    in their new order ('adult_columns.csv'), and the other describing which
+    attributes were moved where ('column_order.csv'). In this file, the
+    position of the number indicates the old column and the number indicates
+    the new column. This information is used to reorder the your_own_algo synthetic
+    data.
+
+    E.g. 2,0,1 would indicate the following mappings:
+        col 0 -> col 2
+        col 1 -> col 0
+        col 2 -> col 1
+
+Arguments:
+    attr_id         The identifier of the new order set.

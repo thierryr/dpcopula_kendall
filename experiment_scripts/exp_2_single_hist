@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Generates a single two-way histogram for experiment 2.
+# Executed from exp_2_gen_hist.
+
+python experiments.py $1 $2 $3 two_way_hist $4

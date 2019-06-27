@@ -1,0 +1,17 @@
+#!/bin/bash
+
+IN_FILE='/Users/*/DPCopula/data/input/adult_data.csv'
+OUT_FILE='/Users/*/DPCopula/data/output/adult_synthetic_data.csv'
+
+ATTR=$(($1+1))
+
+IN_COUNT=$(awk -F, -v attr="$ATTR" -v val="$2" '{if ($attr == val) print $0}' $IN_FILE | wc -l)
+OUT_COUNT=$(awk -F, -v attr="$ATTR" -v val="$2" '{if ($attr == val) print $0}' $OUT_FILE | wc -l)
+ABS_ERROR=$(($OUT_COUNT - $IN_COUNT))
+REL_ERROR=$(bc <<< "scale=2;100*($OUT_COUNT-$IN_COUNT)/$IN_COUNT")
+
+echo -e "Matches in input file:\t$IN_COUNT"
+echo -e "Matches in output file:\t$OUT_COUNT"
+echo -e "Absolute error:\t\t$ABS_ERROR"
+echo -e "Relative error:\t\t$REL_ERROR%"
+

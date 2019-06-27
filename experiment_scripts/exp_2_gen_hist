@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Generates the two-way histograms for experiment 2 on the original data and
+# for all sets of synthetic data.
+
+# Usage:
+# experiment_scripts/exp_2_gen_hist [folder name] [synthetic set] [attribute set]
+
+EPSILONS=(0.05 0.1 0.5 1.0 2.0 5.0)
+
+python experiments.py $1 $2 $3 setup
+
+sbatch experiment_scripts/exp_2_single_hist $1 $2 $3 original_data
+
+for eps in ${EPSILONS[*]}
+do
+    sbatch experiment_scripts/exp_2_single_hist $1 $2 $3 "kendall_synthetic_${eps}"
+    sbatch experiment_scripts/exp_2_single_hist $1 $2 $3 "your_own_algo_synthetic_${eps}"
+done

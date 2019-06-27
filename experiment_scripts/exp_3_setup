@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Performs all setup procedures required to generate the histograms for
+# experiment 3.
+
+# Usage:
+# experiment_scripts/exp_3_setup
+
+for i in {1..10}
+do
+    sbatch experiment_scripts/exp_3_single_setup two_way_error_bars/set_$i errors$i $i
+done

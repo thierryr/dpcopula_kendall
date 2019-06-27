@@ -1,0 +1,13 @@
+collect_results
+
+Usage:
+    collect_results.py [identifier]
+
+Description:
+    Takes the error summaries from all runs of an experiment and averages them.
+    This script takes results from all experiments containing the string
+    `identifier` in the folder name.
+
+Special cases for `identifier`:
+    help            prints this message
+    preset          runs the script on a preset list of identifiers

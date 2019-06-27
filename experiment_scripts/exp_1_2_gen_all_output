@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Generates all graphs and error summaries for experiments 1 and 2
+
+# Usage:
+# experiment_scripts/exp_1_2_gen_all_output
+
+for i in {1..4}
+do
+    sbatch experiment_scripts/exp_1_2_gen_single_output one_way_histograms_set_$i $i 1
+    sbatch experiment_scripts/exp_1_2_gen_single_output one_way_reordered_set_$i $i 2
+    sbatch experiment_scripts/exp_1_2_gen_single_output two_way_histograms_set_$i $i 1
+    sbatch experiment_scripts/exp_1_2_gen_single_output two_way_reordered_set_$i $i 2
+done

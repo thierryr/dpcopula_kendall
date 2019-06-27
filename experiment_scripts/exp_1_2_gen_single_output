@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Generates the graphs and error summaries for a single run of either
+# experiment 1 or two.
+
+# Usage:
+# experiment_scripts/exp_1_2_gen_single_output [folder name] [synthetic set] [attribute set]
+
+python experiments.py $1 $2 $3 gen_results

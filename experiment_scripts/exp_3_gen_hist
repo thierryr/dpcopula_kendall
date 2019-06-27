@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Generates all histograms for experiment 3
+
+# Usage:
+# experiment_scripts/exp_3_gen_hist
+
+for i in {1..10}
+do
+    FOLDER=two_way_error_bars/set_$i
+    sbatch experiment_scripts/exp_3_single_hist $FOLDER errors$i $i original_data
+    sbatch experiment_scripts/exp_3_single_hist $FOLDER errors$i $i kendall_synthetic_1.0
+    sbatch experiment_scripts/exp_3_single_hist $FOLDER errors$i $i your_own_algo_synthetic_1.0
+done
+

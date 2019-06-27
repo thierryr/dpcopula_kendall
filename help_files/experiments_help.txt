@@ -1,0 +1,39 @@
+experiments
+
+Usage:
+    experiment.py [folder_name] [set_id] [attr_id] [operation] <filename>
+    experiment.py [folder_name] two_way_errors
+    experiment.py help
+
+Description:
+    Allow general experiment functionality from command line
+    Can perform a one-way and two-way histogram error comparison as well as set
+    up experiments and generate CDF graphs and boxplots.
+
+    Can also generate a two-way histogram with error bars for a single epsilon
+    assuming that all the individual two-way histograms have been previously
+    generated.
+
+Arguments:
+    folder_name     Name of the folder containing all the experiment files
+    set_id          Which set of synthetic data the experiment should use
+                    from data/experiment_data/synthetic_sets.
+    attr_id         Which set of attribute information (attribute ordering) the
+                    experiment should use from
+                    data/experiment_data/attribute_sets.
+    operation       Which part of the experiment to run. Available options are
+                    outlined below.
+    filename        The name of the synthetic data file a histogram will be
+                    generated on. Only used when `operation` is either
+                    'one_way_hist' or 'two_way_hist'.
+
+Operations:
+    setup           Create experiment directory if required, copy input files
+                    and generate Kendall data.
+    one_way_hist    Generate a one-way histogram of the specified file.
+                    Filename argument should not include the file extension or
+                    path.
+    two_way_hist    Same as one_way_hist but generates a two-way histogram
+                    instead.
+    gen_results     Generates error graphs and summaries.
+

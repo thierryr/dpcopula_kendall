@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Generates the histogram with error bars for experiment 3.
+
+# Usage:
+# experiment_scripts/exp_3_gen_output
+
+python experiments.py two_way_error_bars two_way_errors

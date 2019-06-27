@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Generates the histograms from experiments 1 and 2 with two distinct orderings
+# four times each.
+
+# Usage:
+# experiment_scripts/exp_1_2_gen_all_hist
+
+for i in {1..4}
+do
+    experiment_scripts/exp_1_gen_hist one_way_histograms_set_$i $i 1
+    experiment_scripts/exp_1_gen_hist one_way_reordered_set_$i $i 2
+    experiment_scripts/exp_2_gen_hist two_way_histograms_set_$i $i 1
+    experiment_scripts/exp_2_gen_hist two_way_reordered_set_$i $i 2
+done 
